@@ -3,6 +3,7 @@ package com.aninfo.integration.cucumber;
 import com.aninfo.exceptions.DepositNegativeSumException;
 import com.aninfo.exceptions.InsufficientFundsException;
 import com.aninfo.model.Account;
+import com.aninfo.model.Transaction;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
 import cucumber.api.java.en.And;
@@ -16,6 +17,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 public class AccountOperationsTest extends AccountIntegrationServiceTest {
 
     private Account account;
+
     private InsufficientFundsException ife;
     private DepositNegativeSumException dnse;
 
