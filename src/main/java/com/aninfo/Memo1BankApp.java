@@ -71,13 +71,13 @@ public class Memo1BankApp {
 	}
 
 	@PostMapping("/accounts/{cbu}/withdraw")
-	public Transaction withdraw(@PathVariable Long cbu, @RequestParam Double sum) {
-		return transactionService.withdraw(cbu, sum);
+	public Account withdraw(@PathVariable Long cbu, @RequestParam Double sum) {
+		return accountService.withdraw(cbu, sum);
 	}
 
 	@PostMapping("/accounts/{cbu}/deposit")
-	public Transaction deposit(@PathVariable Long cbu, @RequestParam Double sum) {
-		return transactionService.deposit(cbu, sum);
+	public Account deposit(@PathVariable Long cbu, @RequestParam Double sum) {
+		return accountService.deposit(cbu, sum);
 	}
 
 	@GetMapping("/transactions")

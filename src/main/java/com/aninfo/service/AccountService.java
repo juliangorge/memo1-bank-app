@@ -73,10 +73,11 @@ public class AccountService {
             throw new DepositNegativeSumException("Cannot deposit negative sums");
         }
 
-        Transaction transaction = transactionService.createTransaction(new Transaction(cbu, sum));
+        Double finalSum = applyPromoIfApplicable(sum);
+        Transaction transaction = transactionService.createTransaction(new Transaction(cbu, finalSum));
 
         Account account = accountRepository.findAccountByCbu(cbu);
-        account.setBalance(account.getBalance() + applyPromoIfApplicable(sum));
+        account.setBalance(account.getBalance() + finalSum);
         accountRepository.save(account);
 
         return account;
